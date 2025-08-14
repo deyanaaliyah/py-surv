@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Camera Streaming</title>
+    <style>
+      html {
+        background: #222;
+        color: #0e3d9c;
+        text-align: center;
+        font-family: monospace;
+      }
+      .camera-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: auto;
+      }
+      .camera-feed {
+        border: 2px solid #333;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: auto;
+        width: 95%;
+      }
+      h2 {
+        text-align: center;
+        padding: 10px;
+      }
+      img {
+        width: 95%;
+        margin: auto;
+      }
+
+      @media (min-width: 724px) {
+        .camera-container {
+          flex-wrap: unset;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Camera Streaming</h1>
+    <div class="camera-container">
+      {% for i in range(camera_count) %}
+      <div class="camera-feed">
+        <h2>Camera {{ i }}</h2>
+        <img src="{{ url_for('video_feed', camera_index=i) }}" alt="Camera {{ i }} Feed" />
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
