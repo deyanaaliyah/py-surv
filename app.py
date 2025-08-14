@@ -4,7 +4,6 @@ import datetime
 import time
 import os
 from pathlib import Path
-import requests
 app = Flask(__name__)
 
 # config
